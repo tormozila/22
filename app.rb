@@ -5,11 +5,15 @@ require 'sinatra/reloader'
 
 
 get '/' do
-  erb '<h2> About </h2>'
+  erb :about
+end
+
+get '/start' do
+  erb '<h1> Start </h1>'
 end
 
 get '/start2' do
-  erb 'Can you handle a secret'
+  erb '<h1> Start2 </h1>'
 end
 
 
