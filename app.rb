@@ -9,7 +9,12 @@ get '/' do
 end
 
 get '/start' do
-  erb '<h1> Start </h1>'
+
+  @title = "Users list"
+  @logfile = File.open './public/users.txt', 'r'
+
+  erb :showu
+
 end
 
 get '/visit' do
@@ -22,11 +27,8 @@ post '/visit' do
   @cell_number = params[:cell_]
   @date_time = params[:date_]
 
-  @title = 'Thank you'
-  @message = "#{@user_id} we will be waiting for you at #{@date_time}. Your cell #{@cell_number}"
-
   f = File.open './public/users.txt', 'a'
-  f.write "user: #{@user_id}; cell: #{@cell_number}; date: #{@date_time}"
+  f.write "\n user: #{@name_.capitalize}; cell: #{@cell_number}; date: #{@date_time}"
   f.close
   erb :visit
 

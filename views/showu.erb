@@ -1,0 +1,10 @@
+<h1> 
+
+	<%= @title %>
+
+</h1>
+
+<h2>Text file:</h2>
+<% @logfile.each_line do |line| %>
+  <p> <%= line %> </p>
+<% end %>
